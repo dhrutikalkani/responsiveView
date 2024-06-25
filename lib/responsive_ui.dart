@@ -31,7 +31,6 @@ class _ResponsiveUIScreenState extends State<ResponsiveUIScreen> {
       "time": "20K views",
       "day": "6 days",
       // "color": "${Colo
-
     },
     {
       "name": "51 Flutter Devleloper Jobs and in surat,Gujarat",
