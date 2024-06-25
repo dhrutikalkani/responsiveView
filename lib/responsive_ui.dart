@@ -77,6 +77,10 @@ class _ResponsiveUIScreenState extends State<ResponsiveUIScreen> {
                           Icons.menu,
                           color: Colors.white,
                         ),
+                        // Icon(
+                        //   Icons.menu,
+                        //   color: Colors.white,
+                        // ),
                         SizedBox(width: 0.06 * width),
                         Icon(
                           Icons.play_circle_fill_outlined,
