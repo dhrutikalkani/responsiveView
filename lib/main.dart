@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:responsive_view/responsive_ui.dart';
+import 'package:responsive_view/youtub%20ui/responsive_ui.dart';
 
 void main() {
   runApp(const MyApp());

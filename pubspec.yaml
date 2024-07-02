@@ -38,6 +38,7 @@ dependencies:
   sqflite:
   path:
   get: ^4.6.6
+  video_player:
 
 dev_dependencies:
   flutter_test:
