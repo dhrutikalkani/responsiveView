@@ -173,7 +173,7 @@ class _ResponsiveUIScreenState extends State<ResponsiveUIScreen> {
       "name": "Send feedback",
     },
     {
-      "icon": Icons.circle,
+      "icon": Icons.circle_outlined,
       "name": "",
     },
   ];
@@ -598,13 +598,21 @@ class _ResponsiveUIScreenState extends State<ResponsiveUIScreen> {
                               border: Border.all(color: Colors.grey.shade300),
                             ),
                             child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 TextField(
                                   decoration: InputDecoration(
-                                      border: InputBorder.none,
-                                      constraints: BoxConstraints.expand(
-                                          width: (0.237 * width)),
-                                      hintText: "Search"),
+                                    border: InputBorder.none,
+                                    contentPadding: EdgeInsets.only(
+                                        left: 0.015 * width,
+                                        bottom: 0.02 * height),
+                                    constraints: BoxConstraints.expand(
+                                        width: (0.234 * width)),
+                                    hintText: "Search",
+                                    hintStyle: TextStyle(
+                                      color: Colors.grey.shade400,
+                                    ),
+                                  ),
                                 ),
                                 Container(
                                   height: 0.067 * height,
@@ -664,10 +672,21 @@ class _ResponsiveUIScreenState extends State<ResponsiveUIScreen> {
                             ),
                           ),
                           SizedBox(width: 0.01 * width),
-                          Icon(
-                            Icons.notifications_none_outlined,
-                            size: 0.038 * width,
-                            color: Colors.white,
+                          InkResponse(
+                            onTap: () {},
+                            onHover: (value) {
+                              setState(() {
+                                ishover = value;
+                              });
+                            },
+                            hoverColor: Colors.grey.withOpacity(0.4),
+                            highlightShape: BoxShape.circle,
+                            borderRadius: BorderRadius.circular(0.01 * width),
+                            child: Icon(
+                              Icons.notifications_none_outlined,
+                              size: 0.038 * width,
+                              color: Colors.white,
+                            ),
                           ),
                           SizedBox(width: 0.04 * width),
                           CircleAvatar(
@@ -695,10 +714,20 @@ class _ResponsiveUIScreenState extends State<ResponsiveUIScreen> {
                             children: [
                               InkResponse(
                                 onTap: () {},
+                                onHover: (value) {
+                                  setState(() {
+                                    ishover = value;
+                                  });
+                                },
+                                hoverColor: Colors.grey.withOpacity(0.4),
+                                highlightShape: BoxShape.rectangle,
+                                borderRadius:
+                                    BorderRadius.circular(0.01 * width),
                                 child: Container(
                                   height: 0.1 * height,
-                                  width: 0.04 * width,
+                                  width: 0.18 * width,
                                   child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Icon(
                                         Icons.home,
@@ -717,10 +746,20 @@ class _ResponsiveUIScreenState extends State<ResponsiveUIScreen> {
                               SizedBox(height: 0.02 * height),
                               InkResponse(
                                 onTap: () {},
+                                onHover: (value) {
+                                  setState(() {
+                                    ishover = value;
+                                  });
+                                },
+                                hoverColor: Colors.grey.withOpacity(0.4),
+                                highlightShape: BoxShape.rectangle,
+                                borderRadius:
+                                    BorderRadius.circular(0.01 * width),
                                 child: Container(
                                   height: 0.1 * height,
-                                  width: 0.07 * width,
+                                  width: 0.18 * width,
                                   child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Icon(
                                         Icons.sports_handball_outlined,
@@ -739,10 +778,20 @@ class _ResponsiveUIScreenState extends State<ResponsiveUIScreen> {
                               SizedBox(height: 0.02 * height),
                               InkResponse(
                                 onTap: () {},
+                                onHover: (value) {
+                                  setState(() {
+                                    ishover = value;
+                                  });
+                                },
+                                hoverColor: Colors.grey.withOpacity(0.4),
+                                highlightShape: BoxShape.rectangle,
+                                borderRadius:
+                                    BorderRadius.circular(0.01 * width),
                                 child: Container(
                                   height: 0.1 * height,
-                                  width: 0.08 * width,
+                                  width: 0.18 * width,
                                   child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Icon(
                                         Icons.shop_2_outlined,
@@ -761,10 +810,20 @@ class _ResponsiveUIScreenState extends State<ResponsiveUIScreen> {
                               SizedBox(height: 0.02 * height),
                               InkResponse(
                                 onTap: () {},
+                                onHover: (value) {
+                                  setState(() {
+                                    ishover = value;
+                                  });
+                                },
+                                hoverColor: Colors.grey.withOpacity(0.4),
+                                highlightShape: BoxShape.rectangle,
+                                borderRadius:
+                                    BorderRadius.circular(0.01 * width),
                                 child: Container(
                                   height: 0.1 * height,
-                                  width: 0.07 * width,
+                                  width: 0.18 * width,
                                   child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Icon(
                                         Icons.slideshow_outlined,
@@ -772,7 +831,7 @@ class _ResponsiveUIScreenState extends State<ResponsiveUIScreen> {
                                         size: 0.038 * width,
                                       ),
                                       Text(
-                                        "Home",
+                                        "You",
                                         style: TextStyle(
                                             color: Colors.white, fontSize: 10),
                                       )
@@ -861,29 +920,31 @@ class _ResponsiveUIScreenState extends State<ResponsiveUIScreen> {
                                     gridDelegate:
                                         SliverGridDelegateWithFixedCrossAxisCount(
                                             crossAxisCount: 2,
-                                            mainAxisSpacing: 0.05,
-                                            childAspectRatio: 0.8),
+                                            mainAxisSpacing: 0.06,
+                                            mainAxisExtent: 280
+                                            // childAspectRatio: 0.8,
+                                            ),
                                     itemBuilder: (context, index) {
-                                      return Column(
-                                        children: [
-                                          InkResponse(
-                                            onTap: () {
-                                              setState(() {
-                                                selectvideo = index;
-                                              });
-                                              Navigator.push(
-                                                  context,
-                                                  MaterialPageRoute(
-                                                    builder: (context) =>
-                                                        VideoPlayerScreen(
-                                                      // videoist:
-                                                      //   videocontrollerList[selectvideo],
-                                                      videoplayer:
-                                                          "${video[index]}",
-                                                    ),
-                                                  ));
-                                            },
-                                            child: Container(
+                                      return InkResponse(
+                                        onTap: () {
+                                          setState(() {
+                                            selectvideo = index;
+                                          });
+                                          Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                builder: (context) =>
+                                                    VideoPlayerScreen(
+                                                  // videoist:
+                                                  //   videocontrollerList[selectvideo],
+                                                  videoplayer:
+                                                      "${video[index]}",
+                                                ),
+                                              ));
+                                        },
+                                        child: Column(
+                                          children: [
+                                            Container(
                                               height: 0.29 * height,
                                               width: 0.38 * width,
                                               decoration: BoxDecoration(
@@ -898,105 +959,111 @@ class _ResponsiveUIScreenState extends State<ResponsiveUIScreen> {
                                                         0.02 * width),
                                               ),
                                             ),
-                                          ),
-                                          // SizedBox(height: 0.001 * height),
-                                          Padding(
-                                            padding: EdgeInsets.only(
-                                                right: 0.01 * width),
-                                            child: Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.spaceEvenly,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                CircleAvatar(
-                                                  radius: 0.02 * width,
-                                                  backgroundImage: NetworkImage(
-                                                    "${details[index]["color"]}",
+                                            // SizedBox(height: 0.001 * height),
+                                            Padding(
+                                              padding: EdgeInsets.only(
+                                                  right: 0.01 * width),
+                                              child: Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceEvenly,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  CircleAvatar(
+                                                    radius: 0.02 * width,
+                                                    backgroundImage:
+                                                        NetworkImage(
+                                                      "${details[index]["color"]}",
+                                                    ),
                                                   ),
-                                                ),
-                                                SizedBox(width: 0.02 * width),
-                                                SizedBox(
-                                                  width: 0.28 * width,
-                                                  child: Column(
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .start,
-                                                    children: [
-                                                      Text(
-                                                        "${details[index]["name"]}",
-                                                        style: TextStyle(
-                                                            color: Colors.white,
-                                                            fontSize:
-                                                                0.022 * height,
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .w500),
-                                                      ),
-                                                      Text(
-                                                        "${details[index]["typeofvideo"]}",
-                                                        style: TextStyle(
-                                                            color: Colors
-                                                                .grey.shade300,
-                                                            fontSize:
-                                                                0.02 * height,
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .w300),
-                                                      ),
-                                                      Row(
-                                                        children: [
-                                                          Text(
-                                                            "${details[index]["time"]}",
-                                                            style: TextStyle(
-                                                                color: Colors
-                                                                    .grey
-                                                                    .shade300,
-                                                                fontSize: 0.02 *
-                                                                    height,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w300),
-                                                          ),
-                                                          SizedBox(
-                                                              width:
-                                                                  0.01 * width),
-                                                          Icon(
-                                                            Icons.circle,
-                                                            color: Colors
-                                                                .grey.shade300,
-                                                            size: 0.01 * width,
-                                                          ),
-                                                          SizedBox(
-                                                              width:
-                                                                  0.01 * width),
-                                                          Text(
-                                                            "${details[index]["day"]}",
-                                                            style: TextStyle(
-                                                                color: Colors
-                                                                    .grey
-                                                                    .shade300,
-                                                                fontSize: 0.02 *
-                                                                    height,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w300),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    ],
+                                                  SizedBox(width: 0.02 * width),
+                                                  SizedBox(
+                                                    width: 0.28 * width,
+                                                    child: Column(
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        Text(
+                                                          "${details[index]["name"]}",
+                                                          style: TextStyle(
+                                                              color:
+                                                                  Colors.white,
+                                                              fontSize: 0.022 *
+                                                                  height,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w500),
+                                                        ),
+                                                        Text(
+                                                          "${details[index]["typeofvideo"]}",
+                                                          style: TextStyle(
+                                                              color: Colors.grey
+                                                                  .shade300,
+                                                              fontSize:
+                                                                  0.02 * height,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w300),
+                                                        ),
+                                                        Row(
+                                                          children: [
+                                                            Text(
+                                                              "${details[index]["time"]}",
+                                                              style: TextStyle(
+                                                                  color: Colors
+                                                                      .grey
+                                                                      .shade300,
+                                                                  fontSize:
+                                                                      0.02 *
+                                                                          height,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w300),
+                                                            ),
+                                                            SizedBox(
+                                                                width: 0.01 *
+                                                                    width),
+                                                            Icon(
+                                                              Icons.circle,
+                                                              color: Colors.grey
+                                                                  .shade300,
+                                                              size:
+                                                                  0.01 * width,
+                                                            ),
+                                                            SizedBox(
+                                                                width: 0.01 *
+                                                                    width),
+                                                            Text(
+                                                              "${details[index]["day"]}",
+                                                              style: TextStyle(
+                                                                  color: Colors
+                                                                      .grey
+                                                                      .shade300,
+                                                                  fontSize:
+                                                                      0.02 *
+                                                                          height,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w300),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ],
+                                                    ),
                                                   ),
-                                                ),
-                                                Spacer(),
-                                                Icon(
-                                                  Icons.more_vert,
-                                                  color: Colors.white,
-                                                )
-                                              ],
+                                                  Spacer(),
+                                                  Icon(
+                                                    Icons.more_vert,
+                                                    color: Colors.white,
+                                                  )
+                                                ],
+                                              ),
                                             ),
-                                          ),
-                                          SizedBox(height: 0.01 * height),
-                                        ],
+                                            // SizedBox(height: 0.01 * height),
+                                          ],
+                                        ),
                                       );
                                     },
                                   ))
@@ -1017,11 +1084,22 @@ class _ResponsiveUIScreenState extends State<ResponsiveUIScreen> {
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Icon(
-                            Icons.menu_outlined,
-                            color: Colors.white,
-                            size: 0.023 * width,
-                            fill: 0.01,
+                          InkResponse(
+                            onTap: () {},
+                            onHover: (value) {
+                              setState(() {
+                                ishover = value;
+                              });
+                            },
+                            hoverColor: Colors.grey.withOpacity(0.4),
+                            highlightShape: BoxShape.circle,
+                            borderRadius: BorderRadius.circular(0.01 * width),
+                            child: Icon(
+                              Icons.menu_outlined,
+                              color: Colors.white,
+                              size: 0.023 * width,
+                              fill: 0.01,
+                            ),
                           ),
                           SizedBox(width: 0.01 * width),
                           Icon(
@@ -1080,26 +1158,59 @@ class _ResponsiveUIScreenState extends State<ResponsiveUIScreen> {
                             ),
                           ),
                           SizedBox(width: 0.01 * width),
-                          CircleAvatar(
-                            backgroundColor: Colors.grey.shade700,
-                            radius: 0.017 * width,
-                            child: Icon(
-                              Icons.mic,
-                              color: Colors.white,
-                              size: 0.02 * width,
+                          InkResponse(
+                            onTap: () {},
+                            onHover: (value) {
+                              setState(() {
+                                ishover = value;
+                              });
+                            },
+                            hoverColor: Colors.grey.withOpacity(0.4),
+                            highlightShape: BoxShape.circle,
+                            borderRadius: BorderRadius.circular(0.01 * width),
+                            child: CircleAvatar(
+                              backgroundColor: Colors.grey.shade700,
+                              radius: 0.017 * width,
+                              child: Icon(
+                                Icons.mic,
+                                color: Colors.white,
+                                size: 0.02 * width,
+                              ),
                             ),
                           ),
                           SizedBox(width: 0.1 * width),
-                          Icon(
-                            Icons.video_call_outlined,
-                            size: 0.025 * width,
-                            color: Colors.white,
+                          InkResponse(
+                            onTap: () {},
+                            onHover: (value) {
+                              setState(() {
+                                ishover = value;
+                              });
+                            },
+                            hoverColor: Colors.grey.withOpacity(0.4),
+                            highlightShape: BoxShape.circle,
+                            borderRadius: BorderRadius.circular(0.01 * width),
+                            child: Icon(
+                              Icons.video_call_outlined,
+                              size: 0.025 * width,
+                              color: Colors.white,
+                            ),
                           ),
                           SizedBox(width: 0.02 * width),
-                          Icon(
-                            Icons.notifications_none_outlined,
-                            size: 0.025 * width,
-                            color: Colors.white,
+                          InkResponse(
+                            onTap: () {},
+                            onHover: (value) {
+                              setState(() {
+                                ishover = value;
+                              });
+                            },
+                            hoverColor: Colors.grey.withOpacity(0.4),
+                            highlightShape: BoxShape.circle,
+                            borderRadius: BorderRadius.circular(0.01 * width),
+                            child: Icon(
+                              Icons.notifications_none_outlined,
+                              size: 0.025 * width,
+                              color: Colors.white,
+                            ),
                           ),
                           SizedBox(width: 0.04 * width),
                           CircleAvatar(
@@ -1134,23 +1245,24 @@ class _ResponsiveUIScreenState extends State<ResponsiveUIScreen> {
                                     padding:
                                         EdgeInsets.only(left: 0.02 * width),
                                     itemBuilder: (context, index) {
-                                      return Container(
-                                        height: 0.07 * height,
-                                        width: 0.04 * width,
-                                        child: InkResponse(
-                                          onTap: () {},
-                                          onHover: (value) {
-                                            setState(() {
-                                              ishover = value;
-                                            });
-                                          },
-                                          hoverColor:
-                                              Colors.grey.withOpacity(0.4),
-                                          highlightShape: BoxShape.rectangle,
-                                          borderRadius: BorderRadius.circular(
-                                              0.01 * width),
+                                      return InkResponse(
+                                        onTap: () {},
+                                        onHover: (value) {
+                                          setState(() {
+                                            ishover = value;
+                                          });
+                                        },
+                                        hoverColor:
+                                            Colors.grey.withOpacity(0.4),
+                                        highlightShape: BoxShape.rectangle,
+                                        borderRadius:
+                                            BorderRadius.circular(0.01 * width),
+                                        child: Container(
+                                          height: 0.07 * height,
+                                          width: 0.04 * width,
                                           child: Row(
                                             children: [
+                                              SizedBox(width: 0.01 * width),
                                               Icon(
                                                 sidedetails[index]["icon"],
                                                 color: Colors.white,
@@ -1335,37 +1447,38 @@ class _ResponsiveUIScreenState extends State<ResponsiveUIScreen> {
                                   gridDelegate:
                                       SliverGridDelegateWithFixedCrossAxisCount(
                                           crossAxisCount: 3,
-                                          crossAxisSpacing: 0.2,
-                                          mainAxisSpacing: 0.05,
-                                          childAspectRatio: 1),
+                                          mainAxisSpacing: 0.04,
+                                          mainAxisExtent: 270
+                                          // childAspectRatio: 1,
+                                          ),
                                   itemBuilder: (context, index) {
-                                    return Column(
-                                      children: [
-                                        Padding(
-                                          padding: EdgeInsets.only(
-                                              right: 0.02 * width),
-                                          child: InkResponse(
-                                            onTap: () {
-                                              setState(() {
-                                                selectvideo = index;
-                                              });
-                                              Navigator.push(
-                                                  context,
-                                                  MaterialPageRoute(
-                                                    builder: (context) =>
-                                                        VideoPlayerScreen(
-                                                      // videoist:
-                                                      //   videocontrollerList[
-                                                      //       selectvideo]
-                                                      //
-                                                      // index: selectvideo,
-                                                      videoplayer:
-                                                          "${video[index]}",
-                                                    ),
-                                                  ));
-                                            },
+                                    return InkResponse(
+                                      onTap: () {
+                                        setState(() {
+                                          selectvideo = index;
+                                        });
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) =>
+                                                  VideoPlayerScreen(
+                                                // videoist:
+                                                //   videocontrollerList[
+                                                //       selectvideo]
+                                                //
+                                                // index: selectvideo,
+                                                videoplayer: "${video[index]}",
+                                              ),
+                                            ));
+                                      },
+                                      child: Column(
+                                        children: [
+                                          SizedBox(height: 0.02 * height),
+                                          Padding(
+                                            padding: EdgeInsets.only(
+                                                right: 0.02 * width),
                                             child: Container(
-                                              height: 0.25 * height,
+                                              height: 0.26 * height,
                                               width: 0.3 * width,
                                               decoration: BoxDecoration(
                                                 image: DecorationImage(
@@ -1375,100 +1488,102 @@ class _ResponsiveUIScreenState extends State<ResponsiveUIScreen> {
                                                 // color: details[index]["color"],
                                                 borderRadius:
                                                     BorderRadius.circular(
-                                                        0.02 * width),
+                                                        0.01 * width),
                                               ),
                                             ),
                                           ),
-                                        ),
-                                        SizedBox(height: 0.01 * height),
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceAround,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            CircleAvatar(
-                                              radius: 0.015 * width,
-                                              backgroundImage: NetworkImage(
-                                                  "${details[index]["color"]}"),
-                                            ),
-                                            SizedBox(width: 0.005 * width),
-                                            SizedBox(
-                                              width: 0.13 * width,
-                                              child: Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Text(
-                                                    "${details[index]["name"]}",
-                                                    style: TextStyle(
-                                                        color: Colors.white,
-                                                        fontSize:
-                                                            0.022 * height,
-                                                        fontWeight:
-                                                            FontWeight.w500),
-                                                  ),
-                                                  Text(
-                                                    "${details[index]["typeofvideo"]}",
-                                                    style: TextStyle(
-                                                        color: Colors
-                                                            .grey.shade300,
-                                                        fontSize: 0.02 * height,
-                                                        fontWeight:
-                                                            FontWeight.w300),
-                                                  ),
-                                                  Row(
-                                                    children: [
-                                                      Text(
-                                                        "${details[index]["time"]}",
-                                                        style: TextStyle(
-                                                            color: Colors
-                                                                .grey.shade300,
-                                                            fontSize:
-                                                                0.02 * height,
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .w300),
-                                                      ),
-                                                      SizedBox(
-                                                          width: 0.004 * width),
-                                                      Icon(
-                                                        Icons.circle,
-                                                        color: Colors
-                                                            .grey.shade300,
-                                                        size: 0.003 * width,
-                                                      ),
-                                                      SizedBox(
-                                                          width: 0.004 * width),
-                                                      Text(
-                                                        "${details[index]["day"]}",
-                                                        style: TextStyle(
-                                                            color: Colors
-                                                                .grey.shade300,
-                                                            fontSize:
-                                                                0.02 * height,
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .w300),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ],
+                                          SizedBox(height: 0.01 * height),
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceAround,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              CircleAvatar(
+                                                radius: 0.015 * width,
+                                                backgroundImage: NetworkImage(
+                                                    "${details[index]["color"]}"),
                                               ),
-                                            ),
-                                            Spacer(),
-                                            Padding(
-                                              padding: EdgeInsets.only(
-                                                  right: 0.01 * width),
-                                              child: Icon(
-                                                Icons.more_vert,
-                                                color: Colors.white,
+                                              SizedBox(width: 0.005 * width),
+                                              SizedBox(
+                                                width: 0.13 * width,
+                                                child: Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    Text(
+                                                      "${details[index]["name"]}",
+                                                      style: TextStyle(
+                                                          color: Colors.white,
+                                                          fontSize:
+                                                              0.022 * height,
+                                                          fontWeight:
+                                                              FontWeight.w500),
+                                                    ),
+                                                    Text(
+                                                      "${details[index]["typeofvideo"]}",
+                                                      style: TextStyle(
+                                                          color: Colors
+                                                              .grey.shade300,
+                                                          fontSize:
+                                                              0.02 * height,
+                                                          fontWeight:
+                                                              FontWeight.w300),
+                                                    ),
+                                                    Row(
+                                                      children: [
+                                                        Text(
+                                                          "${details[index]["time"]}",
+                                                          style: TextStyle(
+                                                              color: Colors.grey
+                                                                  .shade300,
+                                                              fontSize:
+                                                                  0.02 * height,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w300),
+                                                        ),
+                                                        SizedBox(
+                                                            width:
+                                                                0.004 * width),
+                                                        Icon(
+                                                          Icons.circle,
+                                                          color: Colors
+                                                              .grey.shade300,
+                                                          size: 0.003 * width,
+                                                        ),
+                                                        SizedBox(
+                                                            width:
+                                                                0.004 * width),
+                                                        Text(
+                                                          "${details[index]["day"]}",
+                                                          style: TextStyle(
+                                                              color: Colors.grey
+                                                                  .shade300,
+                                                              fontSize:
+                                                                  0.02 * height,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w300),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ],
+                                                ),
                                               ),
-                                            )
-                                          ],
-                                        ),
-                                        SizedBox(height: 0.01 * height),
-                                      ],
+                                              Spacer(),
+                                              Padding(
+                                                padding: EdgeInsets.only(
+                                                    right: 0.01 * width),
+                                                child: Icon(
+                                                  Icons.more_vert,
+                                                  color: Colors.white,
+                                                ),
+                                              )
+                                            ],
+                                          ),
+                                        ],
+                                      ),
                                     );
                                   },
                                 ),
