@@ -191,7 +191,7 @@ class _ResponsiveUIScreenState extends State<ResponsiveUIScreen> {
   late VideoPlayerController controller3;
   late VideoPlayerController controller4;
   late VideoPlayerController controller5;
-  int selectvideo = 0;
+  int selectvideo = -1;
   List<VideoPlayerController> videocontrollerList = [];
 
   @override
@@ -236,7 +236,7 @@ class _ResponsiveUIScreenState extends State<ResponsiveUIScreen> {
     final width = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: Colors.black,
-      floatingActionButton: videocontrollerList[selectvideo].value.isInitialized
+      floatingActionButton: selectvideo != -1
           ? Stack(
               alignment: Alignment.center,
               children: [
@@ -263,7 +263,7 @@ class _ResponsiveUIScreenState extends State<ResponsiveUIScreen> {
                 ),
               ],
             )
-          : Container(),
+          : SizedBox(),
       body: width <= 520
           ? Padding(
               padding: EdgeInsets.symmetric(horizontal: 0.03 * width),
@@ -914,7 +914,7 @@ class _ResponsiveUIScreenState extends State<ResponsiveUIScreen> {
                               ),
                               SizedBox(height: 0.01 * height),
                               SizedBox(
-                                  height: 0.8 * height,
+                                  height: 0.79 * height,
                                   child: GridView.builder(
                                     itemCount: details.length,
                                     gridDelegate:
@@ -962,7 +962,7 @@ class _ResponsiveUIScreenState extends State<ResponsiveUIScreen> {
                                             // SizedBox(height: 0.001 * height),
                                             Padding(
                                               padding: EdgeInsets.only(
-                                                  right: 0.01 * width),
+                                                  right: 0.007 * width),
                                               child: Row(
                                                 mainAxisAlignment:
                                                     MainAxisAlignment
